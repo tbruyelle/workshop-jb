@@ -27,15 +27,17 @@ fun examples() {
 }
 
 fun todoTask3(collection: Collection<Int>) = TODO(
-    """
+        """
         Task 3.
         Rewrite 'JavaCode3.task3()' to Kotlin using lambdas.
         Please find the appropriate function on collection through completion.
         (Don't use the class 'Iterables').
     """,
-    references = { JavaCode3().task3(collection) })
+        references = { JavaCode3().task3(collection) })
 
-fun task3(collection: Collection<Int>): Boolean = todoTask3(collection)
+fun task3(collection: Collection<Int>): Boolean =
+        collection.any({ it % 42 == 0 })
+
 
 
 
