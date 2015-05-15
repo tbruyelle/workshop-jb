@@ -17,17 +17,17 @@ fun use() {
 // and can be used in Java with String as a first argument (see JavaCode8.useExtension)
 
 fun todoTask8() = TODO(
-    """
+        """
         Task 8.
         Implement extension functions Int.r(), Pair<Int, Int>.r()
         to support the following way of creating rational numbers:
         1.r(), Pair(1, 2).r()
     """,
-    references = { 1.r(); Pair(1, 2).r(); RationalNumber(1, 9) })
+        references = { 1.r(); Pair(1, 2).r(); RationalNumber(1, 9) })
 
 data class RationalNumber(val numerator: Int, val denominator: Int)
 
-fun Int.r(): RationalNumber = todoTask8()
-fun Pair<Int, Int>.r(): RationalNumber = todoTask8()
+fun Int.r(): RationalNumber = RationalNumber(this, 1)
+fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(first, second)
 
 

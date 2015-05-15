@@ -40,6 +40,27 @@ fun todoTask10() = TODO(
 
 fun task10(handleMouse: (MouseListener) -> Unit): Int {
     var mouseClicks = 0
-    handleMouse(todoTask10())
+    handleMouse(object : MouseListener{
+        override fun mouseEntered(p0: MouseEvent) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun mouseExited(p0: MouseEvent) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun mouseReleased(p0: MouseEvent) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun mousePressed(p0: MouseEvent) {
+            throw UnsupportedOperationException()
+        }
+
+        override fun mouseClicked(p0: MouseEvent) {
+            mouseClicks++
+        }
+
+    })
     return mouseClicks
 }
