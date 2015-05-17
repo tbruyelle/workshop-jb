@@ -26,7 +26,7 @@ fun use(a1: A, a2: A) {
 }
 
 fun todoTask15() = TODO(
-    """
+        """
         Task 15.
         Implement a kind of date arithmetic, support adding years, weeks and days to a date.
         Use classes MyDate and TimeInterval.
@@ -37,17 +37,15 @@ fun todoTask15() = TODO(
         (2). Support adding several time intervals to a date. Add an extra class.
         If any problems, see ii_conventions/_15_Tips.kt.
     """,
-    references = { date: MyDate, timeInterval: TimeInterval ->
-        date.addTimeIntervals(timeInterval, 1)
-    })
+        references = { date: MyDate, timeInterval: TimeInterval ->
+            date.addTimeIntervals(timeInterval, 1)
+        })
 
 fun task15_1(today: MyDate): MyDate {
-    todoTask15()
-//    return today + YEAR + WEEK
+    return today + YEAR + WEEK
 }
 
 fun task15_2(today: MyDate): MyDate {
-    todoTask15()
-//    return today + YEAR * 2 + WEEK * 3 + DAY * 5
+    return today + YEAR * 2 + WEEK * 3 + DAY * 5
 }
 

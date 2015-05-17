@@ -23,10 +23,10 @@ fun todoTask12() = TODO(
     """,
     references = { date: MyDate -> DateRange(date, date.nextDay()) })
 
+fun DateRange.iterator()=this.start.nextDay()
 
 fun iterateOverDateRange(firstDate: MyDate, secondDate: MyDate, handler: (MyDate) -> Unit) {
-    todoTask12()
-//    for (date in DateRange(firstDate, secondDate)) {
-//        handler(date)
-//    }
+    for (date in DateRange(firstDate, secondDate)) {
+        handler(date)
+    }
 }

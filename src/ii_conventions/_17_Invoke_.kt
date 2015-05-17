@@ -24,23 +24,31 @@ fun testFunctionType(f: (Int) -> Int) {
 
 // you can add invoke extension for any class,
 // but it's better not to overdo it
-fun Int.invoke() { println(this) }
+fun Int.invoke() {
+    println(this)
+}
 
 fun testTypeWithInvokeExtension() {
     1() //huh?..
 }
 
-class Invokable
+class Invokable(var count: Int = 0) {
+    fun invoke(): Invokable {
+        count++
+        return this
+    }
+
+    fun getNumberOfInvocations(): Int = count
+}
 
 fun todoTask17() = TODO(
-    """
+        """
         Task 17.
         Change class Invokable to count the number of invocations (round brackets).
         Uncomment the commented code, it should return 4.
     """,
-    references = { invokable: Invokable -> })
+        references = { invokable: Invokable -> })
 
 fun task17(invokable: Invokable): Int {
-    todoTask17()
-//    return invokable()()()().getNumberOfInvocations()
+    return invokable()()()().getNumberOfInvocations()
 }
