@@ -10,6 +10,7 @@ fun functions() {
 
     // extension function
     fun String.lastChar() = this.charAt(this.length() - 1)
+
     // 'this' can be omitted
     fun String.lastChar2() = charAt(length() - 1)
     "abc".lastChar()
@@ -29,7 +30,7 @@ fun functionLiterals() {
 }
 
 fun todoTask22() = TODO(
-    """
+        """
         Task 22.
         Replace 'todoTask22()' so that 'x.isEven()' checks that x is even
         and 'x.isOdd()' checks that x is odd.
@@ -37,8 +38,8 @@ fun todoTask22() = TODO(
 )
 
 fun task22(): List<Boolean> {
-    val isEven: Int.() -> Boolean = { todoTask22() }
-    val isOdd: Int.() -> Boolean = { todoTask22() }
+    val isEven: Int.() -> Boolean = { this % 2 == 0 }
+    val isOdd: Int.() -> Boolean = { !isEven() }
 
     return listOf(42.isOdd(), 239.isOdd(), 294823098.isEven())
 }

@@ -5,7 +5,7 @@ import util.TODO
 
 
 fun todoTask24() = TODO(
-    """
+        """
         Task 24.
         The previous examples can be rewritten with the library function 'with' (see examples below).
         Write your own implementation of the function 'with' named 'with2' or just think what it should be.
@@ -15,11 +15,11 @@ fun todoTask24() = TODO(
     """
 )
 
-fun task24(): Boolean = todoTask24()
+fun task24(): Boolean = true
 
 fun buildString(): String {
     val stringBuilder = StringBuilder()
-    with (stringBuilder) {
+    with2 (stringBuilder) {
         append("Numbers: ")
         for (i in 1..10) {
             append(i)
@@ -28,9 +28,14 @@ fun buildString(): String {
     return stringBuilder.toString()
 }
 
+
+fun with2<T>(o: T, f: T.() -> Unit): Unit {
+    o.f()
+}
+
 fun buildMap(): Map<Int, String> {
     val map = HashMap<Int, String>()
-    with (map) {
+    with2 (map) {
         put(0, "0")
         for (i in 1..10) {
             put(i, "$i")
