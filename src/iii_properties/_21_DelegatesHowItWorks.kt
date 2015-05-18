@@ -6,7 +6,7 @@ import java.util.Calendar
 import ii_conventions.MyDate
 
 fun todoTask21() = TODO(
-    """
+        """
         Task 21.
         A delegate expression must have special 'get' and 'set' methods,
         their signatures you can see below (members of 'ReadWriteProperty' interface).
@@ -15,7 +15,7 @@ fun todoTask21() = TODO(
         Store only time in milliseconds in 'timeInMillis' property.
         Use extension functions 'MyDate.toMillis' and 'Long.ToDate'.
     """,
-    references = { date: MyDate -> date.toMillis().toDate()}
+        references = { date: MyDate -> date.toMillis().toDate() }
 )
 
 class D {
@@ -28,8 +28,10 @@ class D {
 class EffectiveDate<R> : ReadWriteProperty<R, MyDate> {
     var timeInMillis: Long? = null
 
-    override fun get(thisRef: R, desc: PropertyMetadata): MyDate = todoTask21()
-    override fun set(thisRef: R, desc: PropertyMetadata, value: MyDate) = todoTask21()
+    override fun get(thisRef: R, desc: PropertyMetadata): MyDate = timeInMillis!!.toDate()
+    override fun set(thisRef: R, desc: PropertyMetadata, value: MyDate) {
+        timeInMillis = value.toMillis()
+    }
 }
 
 fun MyDate.toMillis(): Long {
